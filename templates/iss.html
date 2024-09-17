@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Serviço</title>
+    <!-- Inclua o Bootstrap para estilização rápida -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2>Apuração municipal</h2>
+
+    <!-- Exibe mensagens flash -->
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="alert alert-success" role="alert">
+                {{ messages[0] }}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <form method="POST" action="{{ url_for('servico.impostos') }}">
+        <div class="form-group">
+            <label for="num_nota">Número da Nota</label>
+            <input type="text" class="form-control" id="num_nota" name="num_nota" required>
+        </div>
+
+        <div class="form-group">
+            <label for="tomador">Valor</label>
+            <input type="number" class="form-control" id="valor" name="valor" step="0.01"  required>
+        </div>
+
+        <div class="form-group">
+            <label for="valor">Aliquota</label>
+            <input type="number" class="form-control" id="aliquota" name="aliquota" step="0.01" required>
+        </div>
+
+        <div class="form-group">
+            <label for="data_servico">Retido</label>
+            <input type="number" class="form-control" id="retido" name="number" step="0.01" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Registrar Impostos</button>
+        <br></br>
+            <a href="{{ url_for('servico.lista_servicos') }}">Lista serviços</a>
+    </form>
+</div>
+
+<!-- Incluindo os scripts do Bootstrap -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

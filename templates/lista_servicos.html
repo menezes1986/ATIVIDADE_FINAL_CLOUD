@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Serviços</title>
+    <!-- Inclua o Bootstrap para estilização rápida -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2>Lista de Serviços</h2>
+
+    <!-- Exibe mensagens flash -->
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="alert alert-warning" role="alert">
+                {{ messages[0] }}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <!-- Verifica se existem serviços -->
+    {% if servicos %}
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Número da Nota</th>
+                    <th>Tomador</th>
+                    <th>Valor</th>
+                    <th>Data do Serviço</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for servico in servicos %}
+                <tr>
+                    <td>{{ servico.idserviços_cloud }}</td>
+                    <td>{{ servico.num_nota }}</td>
+                    <td>{{ servico.tomador }}</td>
+                    <td>{{ servico.valor }}</td>
+                    <td>{{ servico.data_servico }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Nenhum serviço registrado.</p>
+    {% endif %}
+
+    <a href="{{ url_for('servico.servicos') }}" class="btn btn-primary">Registrar novo serviço</a>
+    <a href="{{ url_for('impostos.impostos') }}" class="btn btn-primary">Retenção</a>
+</div>
+
+<!-- Incluindo os scripts do Bootstrap -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
