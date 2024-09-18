@@ -6,10 +6,10 @@ usuario_rota = Blueprint('usuario', __name__)
 
 # Configuração do banco de dados
 db_config2 = {
-    'host':'localhost',
+    'host':'mysql-1pqo.railway.internal',
     'user':'root',
-    'password':'13032018',
-    'database':'cloud_computing',
+    'password':'SnlardcVhxbNcFoGHtXSFKKeqCXKvfQO',
+    'database':'railway',
 }
 
 

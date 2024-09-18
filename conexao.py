@@ -1,10 +1,10 @@
 import mysql.connector 
 
 db_config2 = {
-    'host':'localhost3306',
+    'host':'mysql-1pqo.railway.internal',
     'user':'root',
-    'password':'13032018',
-    'database':'cloud_computing',
+    'password':'SnlardcVhxbNcFoGHtXSFKKeqCXKvfQO',
+    'database':'railway',
 }
 
 #IMPLEMENTATION INACIO MENEZES

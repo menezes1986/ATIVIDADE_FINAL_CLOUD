@@ -6,10 +6,10 @@ servico_rota = Blueprint('servico', __name__)
 
 # Configuração do banco de dados
 db_config2 = {
-    'host': 'localhost',
-    'user': 'root',
-    'password': '13032018',
-    'database': 'cloud_computing',
+    'host':'mysql-1pqo.railway.internal',
+    'user':'root',
+    'password':'SnlardcVhxbNcFoGHtXSFKKeqCXKvfQO',
+    'database':'railway',
 }
 @servico_rota.route('/servico', methods=['GET', 'POST'])
 def servicos():
@@ -32,7 +32,7 @@ def servicos():
             
             # Inserindo os dados no banco de dados
             cursor.execute(
-                "INSERT INTO serviços_cloud (num_nota, tomador, valor, data_servico) VALUES (%s, %s, %s, %s)", 
+                "INSERT INTO servicos_cloud (num_nota, tomador, valor, data_servico) VALUES (%s, %s, %s, %s)", 
                 (num_nota, tomador, valor, data_servico)
             )
 
@@ -64,7 +64,7 @@ def lista_servicos():
         cursor = db.cursor(dictionary=True)
         
         # Executando a consulta para buscar os serviços
-        cursor.execute("SELECT idserviços_cloud, num_nota, tomador, valor, data_servico FROM serviços_cloud")
+        cursor.execute("SELECT idservicos_cloud, num_nota, tomador, valor, data_servico FROM servicos_cloud")
         servicos = cursor.fetchall()
         
     except mysql.connector.Error as err:
